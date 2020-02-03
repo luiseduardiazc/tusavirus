@@ -32,8 +32,22 @@ $ ./manage.py migrate
 ```
 Run 
 ```sh
-$ ./manage.py runserver 0.0.0.0:8000
+$ ./manage.py runserver
 ```
+## Run Test Cases
+
+run test for utilities
+
+```sh
+$ ./manage.py test utilities/
+```
+
+For front-end first start the aplication on  "http://127.0.0.1:8000/"
+
+```sh
+$ ./manage.py test tests/ 
+```
+
 ### Deployment
 Creating a 'Deploy to Heroku' 
 
