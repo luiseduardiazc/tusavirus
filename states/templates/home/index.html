@@ -1,0 +1,27 @@
+{% extends 'home/base.html' %}
+{% block content %} {% load widget_tweaks %}
+<p>Wellcome to states report</p>
+<form method="post">
+    {% csrf_token %}
+    {{ form.state | add_class:"dropdown" }}
+    {{ form.sick_people | add_class:"input"}}
+    <input type="submit" value="Save" />
+</form>
+<p>{{message}}</p>
+<form method="get">
+    {{ get_form.get_report.as_hidden}}
+    <input type="submit" value="Calculate" name="get_data" />
+</form>
+
+<div>
+    <ul>
+        {% for items in report %}
+        <li>{{ items.state__name }} - [{{items.victims__sum}}]</li>
+        {% endfor %}
+    </ul>
+    {% if report %}
+    <p>Total {{total}}</p>
+    {% endif %}
+</div>
+
+{% endblock %}
